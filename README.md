@@ -1,45 +1,62 @@
 # AlertControllerFun
 just some fun with UIAlertController
 
-Two recursive functions that dissect default UI objects so you can alter how they look/work.
+A recursive function that dissects default UI objects. It prints some info so you can find what you need.
 
 
-    func getSubviewFromAddress(superView:UIView, address:[Int]) -> UIView? {
-        
-      var currentView : UIView = superView
-      for index in address {
-            
-        guard currentView.subviews.count > index else {
-          return nil
+    extension UIViewStack {
+    
+        func printSubviewStack() {
+            getSubviewStackRecursive([])
         }
+    
+        private func getSubviewStackRecursive(levels: [Int]) {
+        
+            var currentLevels = levels
+            currentLevels.append(0)
+        
+            for i in 0..<subviews.count {
             
-        currentView = currentView.subviews[index]
+                currentLevels[currentLevels.count - 1] = i
             
-      }
-      return currentView
+                let subview = subviews[i]
+            
+                if subview is UILabel {
+                    print("Label")
+                }
+            
+                if subview is UICollectionViewCell {
+                    print("Cell")
+                }
+            
+                print(subview.frame, "depth:", currentLevels)
+                subview.getSubviewStackRecursive(currentLevels)
+            }
+        }
     }
   
   
-    func subViewStack(view:UIView, levels: [Int]) {
-    
-      var currentLevels = levels
-      currentLevels.append(0)
-    
-      for i in 0..<view.subviews.count {
+Fetch subviews with the printed addresses.
+  
+  
+    extension UIView {
         
-        currentLevels[currentLevels.count - 1] = i
-        
-        let subView = view.subviews[i]
-        
-        if subView is UILabel {
-        print("Label")
+        func getSubView(withAddress address:[Int]) -> UIView? {
+            return getSubviewFromAddressRecursive(self, address: address)
         }
         
-        if subView is UICollectionViewCell {
-          print("Cell")
+        private func getSubviewFromAddressRecursive(superView:UIView, address:[Int]) -> UIView? {
+            
+            var currentView : UIView = superView
+            
+            for index in address {
+                
+                guard currentView.subviews.count > index else {
+                    return nil
+                }
+                currentView = currentView.subviews[index]
+                
+            }
+            return currentView
         }
-        
-        print(subView.frame, "depth:", currentLevels)
-        subViewStack(subView, levels: currentLevels)
-      }
     }
