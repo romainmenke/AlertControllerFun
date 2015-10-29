@@ -35,6 +35,7 @@ extension UIViewStack {
             print("origin:",x,y)
             print("size:",w,h)
             print("type:",type)
+            
             print("address:",printLevels)
             print("")
         }
