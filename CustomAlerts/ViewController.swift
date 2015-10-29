@@ -70,7 +70,9 @@ class ViewController: UIViewController {
             //
         }
         
-        let alertController = CustomAlartController(title: "Danger!", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        // UIAlertController subclasses aren't allowed, so present without animation
+        //let alertController = CustomAlartController(title: "Danger!", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Danger!", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(action1)
         alertController.addAction(action2)
         alertController.addAction(action3)
@@ -82,10 +84,37 @@ class ViewController: UIViewController {
         
         alertController.setValue(attributedString, forKey: "attributedTitle")
         
-        presentViewController(alertController, animated: true) { () -> Void in
+        presentViewController(alertController, animated: false) { () -> Void in
             //
             alertController.view.printSubviewStack()
+            self.customStyles(alertController: alertController)
             
+        }
+        
+    }
+    
+    func customStyles(alertController alertController_I:UIAlertController) {
+        
+        if let titleBackground = alertController_I.view.getSubView(withAddress: [0, 1, 0, 0]) {
+            titleBackground.backgroundColor = UIColor.redColor()
+        }
+        
+        if let titleLabel = alertController_I.view.getSubView(withAddress: [0, 1, 0, 0, 0, 0]) {
+            titleLabel.flash(3, speed: 0.5)
+        }
+        
+        if let firstCellSubView = alertController_I.view.getSubView(withAddress: [0, 1, 0, 2, 0, 0]) {
+            
+            let rectHeight = firstCellSubView.frame.height / 4 * 3
+            let margin = firstCellSubView.frame.height / 8
+            
+            let rect = CGRect(x: margin, y: margin, width: rectHeight, height: rectHeight)
+            
+            let imageView = UIImageView(frame: rect)
+            imageView.image = UIImage(named: "sneaky")
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            firstCellSubView.addSubview(imageView)
+            firstCellSubView.backgroundColor = UIColor.blackColor()
         }
         
     }
