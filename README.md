@@ -1,6 +1,8 @@
 # AlertControllerFun
 just some fun with UIAlertController
 
+This sample project uses these two functions to alter how a UIAlertController looks.
+
 A recursive function that dissects default UI objects. It prints some info so you can find what you need.
 
 
