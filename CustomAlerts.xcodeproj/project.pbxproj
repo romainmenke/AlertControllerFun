@@ -13,6 +13,8 @@
 		056140AE1BE1968A0073EE5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056140AD1BE1968A0073EE5B /* Assets.xcassets */; };
 		056140B11BE1968A0073EE5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056140AF1BE1968A0073EE5B /* LaunchScreen.storyboard */; };
 		056140BC1BE1968A0073EE5B /* CustomAlertsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056140BB1BE1968A0073EE5B /* CustomAlertsUITests.swift */; };
+		056140C71BE1AA1D0073EE5B /* FlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056140C61BE1AA1D0073EE5B /* FlashView.swift */; };
+		056140C91BE1AA3D0073EE5B /* DissectSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056140C81BE1AA3D0073EE5B /* DissectSubviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		056140B71BE1968A0073EE5B /* CustomAlertsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAlertsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056140BB1BE1968A0073EE5B /* CustomAlertsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsUITests.swift; sourceTree = "<group>"; };
 		056140BD1BE1968A0073EE5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		056140C61BE1AA1D0073EE5B /* FlashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashView.swift; sourceTree = "<group>"; };
+		056140C81BE1AA3D0073EE5B /* DissectSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DissectSubviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				056140AD1BE1968A0073EE5B /* Assets.xcassets */,
 				056140AF1BE1968A0073EE5B /* LaunchScreen.storyboard */,
 				056140B21BE1968A0073EE5B /* Info.plist */,
+				056140C61BE1AA1D0073EE5B /* FlashView.swift */,
+				056140C81BE1AA3D0073EE5B /* DissectSubviews.swift */,
 			);
 			path = CustomAlerts;
 			sourceTree = "<group>";
@@ -197,8 +203,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056140C71BE1AA1D0073EE5B /* FlashView.swift in Sources */,
 				056140A91BE1968A0073EE5B /* ViewController.swift in Sources */,
 				056140A71BE1968A0073EE5B /* AppDelegate.swift in Sources */,
+				056140C91BE1AA3D0073EE5B /* DissectSubviews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
